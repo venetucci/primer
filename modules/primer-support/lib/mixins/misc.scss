@@ -1,29 +1,161 @@
 // Generate a two-color caret for any element.
-@mixin double-caret($foreground: $text-white, $background: lighten($gray-300, 5%)) {
+@mixin double-caret($foreground: $text-white, $background: lighten($gray-300, 5%), $position: "se") {
   &::after,
   &::before {
     position: absolute;
-    top: 11px;
-    right: 100%;
-    left: -16px;
-    display: block;
+    display: inline-block;
     width: 0;
     height: 0;
     pointer-events: none;
-    content: " ";
-    border-color: transparent;
-    border-style: solid solid outset;
+    content: "";
+    border: $spacer-2 solid transparent;
   }
 
-  &::after {
-    margin-top: 1px;
-    margin-left: 2px;
-    border-width: 7px;
-    border-right-color: $foreground;
+  // Northern positions
+  @if $position == "s" {
+    &::before,
+    &::after {
+      right: 50%;
+      transform: translateX(50%);
+    }
+
+    &::before {
+      bottom: -$spacer-3;
+      border-top-color: $background;
+    }
+
+    &::after {
+      bottom: -$spacer-3 + 1;
+      border-top-color: $foreground;
+    }
   }
 
-  &::before {
-    border-width: 8px;
-    border-right-color: $background;
+  @if $position == "sw" {
+    &::before,
+    &::after {
+      left: $spacer-2;
+    }
+
+    &::before {
+      bottom: -$spacer-3;
+      border-top-color: $background;
+    }
+
+    &::after {
+      bottom: -$spacer-3 + 1;
+      border-top-color: $foreground;
+    }
+  }
+
+  @if $position == "se" {
+    &::before,
+    &::after {
+      right: $spacer-2;
+    }
+
+    &::before {
+      bottom: -$spacer-3;
+      border-top-color: $background;
+    }
+
+    &::after {
+      bottom: -$spacer-3 + 1;
+      border-top-color: $foreground;
+    }
+  }
+
+  // Eastern positions
+  // This places the caret on the western part of the component,
+  // indicating the component is east from it's target
+  @if $position == "w" {
+    &::before,
+    &::after {
+      top: $spacer-2;
+    }
+
+    &::before {
+      left: -$spacer-3 - 1;
+      border-right-color: $black-fade-15;
+    }
+
+    &::after {
+      left: -$spacer-3;
+      border-right-color: $white;
+    }
+  }
+
+  // Southern positions
+  // This places the caret on the northern part of the component,
+  // indicating the component is south from it's target
+  @if $position == "n" {
+    &::before,
+    &::after {
+      right: 50%;
+      transform: translateX(50%);
+    }
+
+    &::before {
+      top: -$spacer-3;
+      border-bottom-color: $background;
+    }
+
+    &::after {
+      top: -$spacer-3 + 1;
+      border-bottom-color: $foreground;
+    }
+  }
+
+  @if $position == "nw" {
+    &::before,
+    &::after {
+      left: $spacer-2;
+    }
+
+    &::before {
+      top: -$spacer-3;
+      border-bottom-color: $background;
+    }
+
+    &::after {
+      top: -$spacer-3 + 1;
+      border-bottom-color: $foreground;
+    }
+  }
+
+  @if $position == "ne" {
+    &::before,
+    &::after {
+      right: $spacer-2;
+    }
+
+    &::before {
+      top: -$spacer-3;
+      border-bottom-color: $background;
+    }
+
+    &::after {
+      top: -$spacer-3 + 1;
+      border-bottom-color: $foreground;
+    }
+  }
+
+  // Western positions
+  // This places the caret on the eastern part of the component,
+  // indicating the component is west from it's target
+  @if $position == "e" {
+    &::before,
+    &::after {
+      top: $spacer-2;
+    }
+
+    &::before {
+      right: -$spacer-3 - 1;
+      border-left-color: $black-fade-15;
+    }
+
+    &::after {
+      right: -$spacer-3;
+      border-left-color: $white;
+    }
   }
 }
