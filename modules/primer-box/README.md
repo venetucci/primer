@@ -259,7 +259,7 @@ Use `Box--danger` to apply a red border to the outside of the box. This theme is
 </div>
 ```
 
-`Box-danger` is often paired with a red heading. See the [subhead](/styleguide/css/styles/product/components/subhead) docs for more information.
+`Box-danger` is often paired with a red heading. See the [subhead](/primer/components/subhead/) docs for more information.
 
 ```html
 <div class="Subhead border-bottom-0">
