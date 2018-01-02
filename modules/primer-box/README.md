@@ -78,7 +78,7 @@ Box elements include `Box-header`, `Box-body`, and `Box-footer`. These elements 
 
 Use `Box-row` to add rows with borders and maintain the same padding. Box rows have a lighter border to give contrast between the header and footer.
 
-**Note:** Box rows have some reliance on markup structure in order to target the first and last rows, therefore using an unordered list is recommended. See [box row markup structure](#box-row-markup-structure) for more information.
+**Note:** Box rows have some reliance on markup structure in order to target the first and last rows, therefore using an unordered list is recommended. [box row markup structure](#box-row-markup-structure) for more information.
 
 ```html
 <div class="Box">
@@ -259,7 +259,7 @@ Use `Box--danger` to apply a red border to the outside of the box. This theme is
 </div>
 ```
 
-`Box-danger` is often paired with a red heading. See the [subhead](/styleguide/css/styles/product/components/subhead) docs for more information.
+`Box-danger` is often paired with a red heading. See the [subhead](primer/components/subhead/) docs for more information.
 
 ```html
 <div class="Subhead border-bottom-0">
